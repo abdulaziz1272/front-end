@@ -83,6 +83,10 @@ export default {
             font-size: 45px;
             li{
                 transform: translateX(-10px);
+                cursor: pointer;
+            }
+            li:hover{
+                color: #1DBF73;
             }
         }
     }
