@@ -31,14 +31,24 @@
       </p>
 
       <div class="buttons">
-        <button class="back">Назад</button>
-        <button class="publish">Опубликовать</button>
+        <button class="back" @click="goToPrevPage">Назад</button>
+        <button class="publish" @click="goToNextPage">Опубликовать</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToNextPage() {
+  router.push('/seventh')
+}
+function goToPrevPage() {
+  router.push('/fifth')
+}
 const currentStep = 6
 const steps = [
   { number: 1, label: 'Основные' },

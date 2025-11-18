@@ -74,8 +74,8 @@
 
         <!-- Buttons -->
         <div class="buttons">
-          <button type="button" class="back">Назад</button>
-          <button type="submit" class="publish">Опубликовать</button>
+          <button type="button" class="back" @click="goToPrevPage">Назад</button>
+          <button type="submit" class="publish" @click="goToNextPage">Опубликовать</button>
         </div>
       </form>
     </div>
@@ -84,6 +84,16 @@
 
 <script setup>
 import { ref } from 'vue'
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToNextPage() {
+  router.push('/works')
+}
+function goToPrevPage() {
+  router.push('/sixth')
+}
 
 const form = ref({
   title: '',

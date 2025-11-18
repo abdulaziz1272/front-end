@@ -206,9 +206,7 @@ const projects = [
 </script>
 
 <style>
-body {
-    font-family: "Inter", sans-serif;
-}
+
 .header-1{
     /* border: red solid; */
     gap: 20px;

@@ -59,14 +59,24 @@
 
     <!-- Navigation -->
     <div class="nav-buttons">
-      <button class="back-btn" @click="prevStep">Назад</button>
-      <button class="next-btn" @click="nextStep">Дальше</button>
+      <button class="back-btn" @click="goToPrevPage">Назад</button>
+      <button class="next-btn" @click="goToNextPage">Дальше</button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToNextPage() {
+  router.push('/fourth')
+}
+function goToPrevPage() {
+  router.push('/second')
+}
 
 const steps = [
   "Основные",
