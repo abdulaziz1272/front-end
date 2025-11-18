@@ -93,8 +93,8 @@
 
       <!-- Buttons -->
       <div class="buttons">
-        <button class="back" @click="prevStep">Назад</button>
-        <button class="next" @click="nextStep">Дальше</button>
+        <button class="back" @click="goToPrevPage">Назад</button>
+        <button class="next" @click="goToNextPage">Дальше</button>
       </div>
     </div>
   </div>
@@ -102,6 +102,16 @@
 
 <script setup>
 import { ref } from "vue"
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToNextPage() {
+  router.push('/sixth')
+}
+function goToPrevPage() {
+  router.push('/fourth')
+}
 
 const steps = [
   "Основные",

@@ -65,12 +65,18 @@
     </div>
 
     <!-- Next button -->
-    <button class="next-btn" @click="nextStep">Дальше</button>
+    <button class="next-btn" @click="goToNextPage">Дальше</button>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToNextPage() {
+  router.push('/second')
+}
 
 const steps = ["Основные", "Стоимость и опции", "Описание", "Требования", "Галерея", "Публикация"];
 const currentStep = ref(1);

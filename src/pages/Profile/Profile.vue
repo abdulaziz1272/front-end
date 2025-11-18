@@ -23,7 +23,7 @@
         <div class="lines">
           <img :src="lines" alt="line image" />
         </div>
-        <div class="setting-btn">
+        <div class="setting-btn" @click="setSettingsBarVisible">
           <img :src="settingIcon" alt="setting icon" />
         </div>
         <!-- <div class="dots">
@@ -37,6 +37,17 @@
             <img :src="stars" alt="stars" />
           </div>
         </div>
+
+        <!-- settings bar -->
+         <div class="settings-bar" :style="{ display: settingsBarVisible ? 'block' : 'none' }">
+          <ul>
+            <li @click="goToZakaz">Мои заказы</li>
+            <li @click="goToHistory">История</li>
+            <li @click="goToWallet">Мой кошелек</li>
+            <li @click="setSettingsBarVisible">Язык</li>
+            <li @click="goToLogin">Выйти из аккаунта</li>
+          </ul>
+         </div>
       </div>
     </div>
     <div class="works">
@@ -83,7 +94,25 @@ export default {
         { name: "Adobe After Effects" },
         { name: "HTML/CSS" },
       ],
+      settingsBarVisible: false,
     };
+  },
+  methods: {
+    goToHistory() {
+      this.$router.push("/profile/history");
+    },  
+    goToWallet() {
+      this.$router.push("/wallet");
+    },
+    goToZakaz() {
+      this.$router.push("/zakaz");
+    },
+    goToLogin() {
+      this.$router.push("/login");
+    },
+    setSettingsBarVisible() {
+      this.settingsBarVisible = !this.settingsBarVisible;
+    },
   },
 };
 </script>
@@ -93,6 +122,35 @@ export default {
   padding: 20px 150px;
   background: #f7f6ff;
 }
+
+
+.settings-bar{
+  position: absolute;
+  top: 52px;
+  right: -107px;
+  width: 200px;
+  height: auto;
+  /* border: solid 1px #1d1818; */
+  padding: 20px 25px;
+  border-radius: 20px;
+  background-color: #e3dff6;
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    li{
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+    };
+    li:hover{
+      color: rgb(27, 27, 27);
+      background-color: #d9d6e7;
+    }
+  }
+}
+
+
 .user-info {
   display: flex;
   align-items: center;
